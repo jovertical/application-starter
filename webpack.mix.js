@@ -1,4 +1,7 @@
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
+
+require('laravel-mix-svelte');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,5 +16,18 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+        tailwindcss('./tailwind.config.js'),
+    ])
+    .svelte({
+        dev: !mix.inProduction(),
+    })
+    .webpackConfig({
+        output: { chunkFilename: 'js/[name].js?id=[chunkhash]' },
+        resolve: {
+            alias: {
+                '~': path.resolve('resources/js'),
+            },
+        },
+    })
+    .version()
+    .sourceMaps();

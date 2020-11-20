@@ -1,0 +1,4 @@
+{
+    "files.associations": { "*.svelte": "html" },
+    "cSpell.words": ["inertiajs"]
+}
