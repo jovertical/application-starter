@@ -11,21 +11,22 @@
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
-        "inertiajs/inertia-laravel": "^0.3.3",
-        "laravel/framework": "^8.12",
+        "guzzlehttp/guzzle": "^7.2.0",
+        "inertiajs/inertia-laravel": "^0.3.5",
+        "laravel/framework": "^8.20",
         "laravel/tinker": "^2.5"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",
         "facade/ignition": "^2.5",
-        "fakerphp/faker": "^1.9.1",
+        "fakerphp/faker": "^1.13.0",
         "friendsofphp/php-cs-fixer": "^2.16",
+        "laravel/sail": "^1.0",
         "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^5.0",
-        "pestphp/pest": "^0.3.12",
+        "nunomaduro/collision": "^5.1",
+        "pestphp/pest": "^0.3.19",
         "pestphp/pest-plugin-laravel": "^0.3.0",
-        "phpunit/phpunit": "^9.3.10"
+        "phpunit/phpunit": "^9.5.0"
     },
     "config": {
         "optimize-autoloader": true,
