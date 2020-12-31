@@ -1,4 +1,5 @@
 {
-    "files.associations": { "*.svelte": "html" },
-    "cSpell.words": ["inertiajs"]
+    "css.validate": false,
+    "editor.tabSize": 4,
+    "files.associations": { "*.svelte": "html" }
 }

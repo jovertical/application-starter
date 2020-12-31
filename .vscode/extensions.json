@@ -2,6 +2,7 @@
     "recommendations": [
         "bradlc.vscode-tailwindcss",
         "svelte.svelte-vscode",
+        "stylelint.vscode-stylelint",
         "esbenp.prettier-vscode",
         "bmewburn.vscode-intelephense-client"
     ]
