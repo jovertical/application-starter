@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,6 +15,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+        }
+
         if (app()->isLocal()) {
             app()->register(IdeHelperServiceProvider::class);
         }

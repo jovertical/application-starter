@@ -1,5 +1,9 @@
-<main class="h-screen flex items-center justify-center">
-    <h1 class="text-5xl text-gray-500">
-        Hello Svelte ❤️
-    </h1>
-</main>
+<script>
+    import App from '~/Shared/Layouts/App';
+</script>
+
+<App title="Dashboard">
+    <div class="py-4">
+        <div class="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
+    </div>
+</App>

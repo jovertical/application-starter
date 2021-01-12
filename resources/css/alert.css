@@ -1,0 +1,11 @@
+.alert-icon.success {
+    @apply text-green-400;
+}
+
+.alert-text {
+    @apply text-sm font-medium;
+}
+
+.alert-text.success {
+    @apply text-green-800;
+}

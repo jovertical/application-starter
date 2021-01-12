@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 
-class DashboardController extends Controller
+class WelcomeController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -13,6 +13,6 @@ class DashboardController extends Controller
      */
     public function __invoke()
     {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Welcome');
     }
 }
