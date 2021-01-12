@@ -1,10 +1,13 @@
 {
-    "name": "laravel/laravel",
+    "name": "jovertical/application-starter",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Starter project built using the Svelte + Tailwind CSS + Inertia.js + Laravel stack",
     "keywords": [
-        "framework",
-        "laravel"
+        "starter-kit",
+        "laravel",
+        "inertiajs",
+        "sveltejs",
+        "tailwindcss"
     ],
     "license": "MIT",
     "require": {
