@@ -1,6 +1,7 @@
 <script>
     import { createEventDispatcher } from 'svelte';
     import { InertiaLink } from '@inertiajs/inertia-svelte';
+    import Transition from 'svelte-class-transition';
     import clickOutside from '~/directives/clickOutside';
 
     let dispatch = createEventDispatcher();
@@ -41,17 +42,14 @@
         </button>
     </div>
 
-    {#if show}
-        <!--
-            Profile dropdown panel, show/hide based on dropdown state.
-
-            Entering: "transition ease-out duration-100"
-                From: "transform opacity-0 scale-95"
-                To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-                From: "transform opacity-100 scale-100"
-                To: "transform opacity-0 scale-95"
-        -->
+    <Transition
+        toggle="{show}"
+        inTransition="transition ease-out duration-100"
+        inState="transform opacity-0 scale-95"
+        onState="{'transform opacity-100 scale-100'}"
+        outState="transform opacity-0 scale-95"
+        outTransition="transition ease-in duration-75"
+    >
         <div
             class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
             role="menu"
@@ -75,5 +73,5 @@
                 Logout
             </a>
         </div>
-    {/if}
+    </Transition>
 </div>

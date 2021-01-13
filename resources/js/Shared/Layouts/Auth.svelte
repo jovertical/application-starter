@@ -27,8 +27,10 @@
                 <!-- prettier-ignore -->
                 <Alert class="mb-6" status="success">
                     {#if $page.props.status === 'verification-link-sent'}
-                        A new verification link has been sent to the email address you provided
-                        during registration.
+                        <span>
+                            A new verification link has been sent to the email address you provided
+                            during registration.
+                        </span>
                     {:else}
                         <span>{$page.props.status}</span>
                     {/if}

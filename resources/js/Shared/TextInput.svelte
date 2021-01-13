@@ -11,7 +11,9 @@
 </script>
 
 <div>
-    {#if label}<label for="{name}" class="form-label">{label}</label>{/if}
+    {#if label}
+        <label for="{name}" class="form-label">{label}</label>
+    {/if}
 
     <div class="mt-1 relative rounded-md shadow-sm">
         <input
