@@ -1,9 +1,9 @@
 <script>
     import { Inertia } from '@inertiajs/inertia';
     import { InertiaLink, page } from '@inertiajs/inertia-svelte';
-    import Flash from '~/Shared/Flash';
     import Icon from '~/Shared/Icon';
     import NavigationLink from '~/Shared/NavigationLink';
+    import Notification from '~/Shared/Notification';
     import UserMenu from '~/Shared/UserMenu';
 
     let { route } = window;
@@ -115,7 +115,7 @@
             <slot />
 
             {#if $page.props.flash.message}
-                <Flash message="{$page.props.flash.message}" />
+                <Notification message="{$page.props.flash.message}" />
             {/if}
         </div>
     </main>
