@@ -1,14 +1,11 @@
 <script>
-    import { Inertia } from '@inertiajs/inertia';
     import { InertiaLink } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
     import Auth from '~/Shared/Layouts/Auth';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
 
-    export let errors = {};
-
-    let route = window.route;
+    let { route } = window;
 
     let form = createForm({
         email: '',
@@ -16,7 +13,7 @@
     });
 
     function handleSubmit() {
-        Inertia.post(route('login'), $form);
+        form.post(route('login'));
     }
 </script>
 
@@ -37,7 +34,7 @@
             name="email"
             type="email"
             value="{$form.email}"
-            error="{errors.email}"
+            error="{$form.errors.email}"
             onChange="{form.handleChange}"
         />
 
@@ -47,7 +44,7 @@
             type="password"
             autocomplete="current-password"
             value="{$form.password}"
-            error="{errors.password}"
+            error="{$form.errors.password}"
             onChange="{form.handleChange}"
         />
 
@@ -74,6 +71,8 @@
             </div>
         </div>
 
-        <Button class="w-full" type="submit">Login</Button>
+        <Button class="w-full" type="submit" loading="{$form.loading}">
+            Login
+        </Button>
     </form>
 </Auth>

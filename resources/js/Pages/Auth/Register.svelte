@@ -1,14 +1,11 @@
 <script>
-    import { Inertia } from '@inertiajs/inertia';
     import { InertiaLink } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
     import Auth from '~/Shared/Layouts/Auth';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
 
-    export let errors = {};
-
-    let route = window.route;
+    let { route } = window;
 
     let form = createForm({
         first_name: '',
@@ -18,7 +15,7 @@
     });
 
     function handleSubmit() {
-        Inertia.post(route('register'), $form);
+        form.post(route('register'))
     }
 </script>
 
@@ -38,7 +35,7 @@
             label="First name"
             name="first_name"
             value="{$form.first_name}"
-            error="{errors.first_name}"
+            error="{$form.errors.first_name}"
             onChange="{form.handleChange}"
         />
 
@@ -46,7 +43,7 @@
             label="Last name"
             name="last_name"
             value="{$form.last_name}"
-            error="{errors.last_name}"
+            error="{$form.errors.last_name}"
             onChange="{form.handleChange}"
         />
 
@@ -55,7 +52,7 @@
             name="email"
             type="email"
             value="{$form.email}"
-            error="{errors.email}"
+            error="{$form.errors.email}"
             onChange="{form.handleChange}"
         />
 
@@ -64,10 +61,12 @@
             name="password"
             type="password"
             value="{$form.password}"
-            error="{errors.password}"
+            error="{$form.errors.password}"
             onChange="{form.handleChange}"
         />
 
-        <Button class="w-full" type="submit">Register</Button>
+        <Button class="w-full" type="submit" loading="{$form.loading}">
+            Register
+        </Button>
     </form>
 </Auth>

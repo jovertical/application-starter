@@ -1,5 +1,4 @@
 <script>
-    import { Inertia } from '@inertiajs/inertia';
     import { InertiaLink } from '@inertiajs/inertia-svelte';
     import { page } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
@@ -7,9 +6,7 @@
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
 
-    export let errors = {};
-
-    let route = window.route;
+    let { route } = window;
 
     let form = createForm({
         email: $page.props.email,
@@ -19,7 +16,7 @@
     });
 
     function handleSubmit() {
-        Inertia.post(route('password.update'), $form);
+        form.post(route('password.update'));
     }
 </script>
 
@@ -30,7 +27,7 @@
             name="email"
             type="email"
             value="{$form.email}"
-            error="{errors.email}"
+            error="{$form.errors.email}"
             onChange="{form.handleChange}"
         />
 
@@ -39,7 +36,7 @@
             name="password"
             type="password"
             value="{$form.password}"
-            error="{errors.password}"
+            error="{$form.errors.password}"
             onChange="{form.handleChange}"
         />
 
@@ -48,7 +45,7 @@
             name="password_confirmation"
             type="password"
             value="{$form.password_confirmation}"
-            error="{errors.password_confirmation}"
+            error="{$form.errors.password_confirmation}"
             onChange="{form.handleChange}"
         />
 
@@ -61,6 +58,8 @@
             </InertiaLink>
         </div>
 
-        <Button class="w-full" type="submit">Reset Password</Button>
+        <Button class="w-full" type="submit" loading="{$form.loading}">
+            Reset Password
+        </Button>
     </form>
 </Auth>

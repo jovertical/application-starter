@@ -1,12 +1,9 @@
 <script>
-    import { Inertia } from '@inertiajs/inertia';
     import { page } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
     import Settings from '~/Shared/Layouts/Settings';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
-
-    export let errors = {};
 
     let form = createForm({
         current_password: '',
@@ -14,9 +11,7 @@
     });
 
     function handleSubmit() {
-        Inertia.patch(route('settings.password.update'), $form).then(() => {
-            form.reset();
-        });
+        form.patch(route('settings.password.update'));
     }
 </script>
 
@@ -46,7 +41,7 @@
                                 type="password"
                                 autocomplete="current-password"
                                 value="{$form.current_password}"
-                                error="{errors.current_password}"
+                                error="{$form.errors.current_password}"
                                 onChange="{form.handleChange}"
                             />
                         </div>
@@ -57,7 +52,7 @@
                                 name="password"
                                 type="password"
                                 value="{$form.password}"
-                                error="{errors.password}"
+                                error="{$form.errors.password}"
                                 onChange="{form.handleChange}"
                             />
                         </div>
@@ -65,7 +60,7 @@
                 </div>
 
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <Button type="submit">Save</Button>
+                    <Button type="submit" loading="{$form.loading}">Save</Button>
                 </div>
             </div>
         </form>

@@ -1,18 +1,15 @@
 <script>
-    import { Inertia } from '@inertiajs/inertia';
     import Button from '~/Shared/Button';
     import Auth from '~/Shared/Layouts/Auth';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
-
-    export let errors = {};
 
     let form = createForm({
         password: '',
     });
 
     function handleSubmit() {
-        Inertia.post(route('password.confirm'), $form);
+        form.post(route('password.confirm'));
     }
 </script>
 
@@ -27,10 +24,12 @@
             name="password"
             type="password"
             value="{$form.password}"
-            error="{errors.password}"
+            error="{$form.errors.password}"
             onChange="{form.handleChange}"
         />
 
-        <Button class="w-full" type="submit">Confirm</Button>
+        <Button class="w-full" type="submit" loading="{$form.loading}">
+            Confirm
+        </Button>
     </form>
 </Auth>

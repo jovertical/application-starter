@@ -1,15 +1,18 @@
 <script>
-    import { Inertia } from '@inertiajs/inertia';
     import Button from '~/Shared/Button';
     import Auth from '~/Shared/Layouts/Auth';
     import TextInput from '~/Shared/TextInput';
+    import { createForm } from '~/stores/form';
+
+    let form = createForm();
+    let logoutForm = createForm();
 
     function handleLogout() {
-        Inertia.post(route('logout'));
+        logoutForm.post(route('logout'));
     }
 
     function handleSubmit() {
-        Inertia.post(route('verification.send'));
+        form.post(route('verification.send'));
     }
 </script>
 
@@ -28,7 +31,9 @@
         </form>
 
         <form on:submit|preventDefault="{handleSubmit}">
-            <Button class="w-full" type="submit">Resend Verification Email</Button>
+            <Button class="w-full" type="submit" loading="{$form.loading}">
+                Resend Verification Email
+            </Button>
         </form>
     </div>
 </Auth>

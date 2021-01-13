@@ -1,12 +1,9 @@
 <script>
-    import { Inertia } from '@inertiajs/inertia';
     import { InertiaLink } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
     import Auth from '~/Shared/Layouts/Auth';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
-
-    export let errors = {};
 
     let route = window.route;
 
@@ -15,7 +12,7 @@
     });
 
     function handleSubmit() {
-        Inertia.post(route('password.email'), $form);
+        form.post(route('password.email'));
     }
 </script>
 
@@ -31,7 +28,7 @@
             name="email"
             type="email"
             value="{$form.email}"
-            error="{errors.email}"
+            error="{$form.errors.email}"
             onChange="{form.handleChange}"
         />
 
@@ -44,6 +41,8 @@
             </InertiaLink>
         </div>
 
-        <Button class="w-full" type="submit">Email Password Reset Link</Button>
+        <Button class="w-full" type="submit" loading="{$form.loading}">
+            Email Password Reset Link
+        </Button>
     </form>
 </Auth>

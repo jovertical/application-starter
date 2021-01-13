@@ -1,12 +1,9 @@
 <script>
-    import { Inertia } from '@inertiajs/inertia';
     import { page } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
     import Settings from '~/Shared/Layouts/Settings';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
-
-    export let errors = {};
 
     let form = createForm({
         first_name: $page.props.auth.user.first_name,
@@ -15,7 +12,7 @@
     });
 
     function handleSubmit() {
-        Inertia.patch(route('settings.account.update'), $form);
+        form.patch(route('settings.account.update'));
     }
 </script>
 
@@ -44,7 +41,7 @@
                                 label="First name"
                                 name="first_name"
                                 value="{$form.first_name}"
-                                error="{errors.first_name}"
+                                error="{$form.errors.first_name}"
                                 onChange="{form.handleChange}"
                             />
                         </div>
@@ -54,7 +51,7 @@
                                 label="Last name"
                                 name="last_name"
                                 value="{$form.last_name}"
-                                error="{errors.last_name}"
+                                error="{$form.errors.last_name}"
                                 onChange="{form.handleChange}"
                             />
                         </div>
@@ -65,7 +62,7 @@
                                 name="email"
                                 type="email"
                                 value="{$form.email}"
-                                error="{errors.email}"
+                                error="{$form.errors.email}"
                                 onChange="{form.handleChange}"
                             />
                         </div>
@@ -73,7 +70,7 @@
                 </div>
 
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <Button type="submit">Save</Button>
+                    <Button type="submit" loading="{$form.loading}">Save</Button>
                 </div>
             </div>
         </form>
