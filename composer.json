@@ -25,14 +25,14 @@
         "claudiodekker/inertia-laravel-testing": "^1.2",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.13.0",
-        "friendsofphp/php-cs-fixer": "^3.0",
         "laravel/breeze": "^1.0",
         "laravel/sail": "^1.0",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.1",
         "pestphp/pest": "^0.3.19",
         "pestphp/pest-plugin-laravel": "^0.3.0",
-        "phpunit/phpunit": "^9.5.0"
+        "phpunit/phpunit": "^9.5.0",
+        "symplify/easy-coding-standard": "^9.0"
     },
     "config": {
         "optimize-autoloader": true,
@@ -61,14 +61,14 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "lint": [
-            "PHP_CS_FIXER_IGNORE_ENV=true php-cs-fixer fix -v"
+        "format": [
+            "./vendor/bin/ecs check --fix"
         ],
         "test:lint": [
-            "PHP_CS_FIXER_IGNORE_ENV=true php-cs-fixer fix -v --dry-run"
+            "./vendor/bin/ecs check"
         ],
         "test:unit": [
-            "vendor/bin/pest"
+            "./vendor/bin/pest"
         ],
         "test": [
             "@test:lint",
