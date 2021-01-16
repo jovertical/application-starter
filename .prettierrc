@@ -2,19 +2,13 @@
     "tabWidth": 4,
     "semi": true,
     "singleQuote": true,
-    "svelteSortOrder": "styles-scripts-markup",
+    "svelteSortOrder": "options-styles-scripts-markup",
     "svelteStrictMode": true,
-    "svelteBracketNewLine": true,
-    "svelteAllowShorthand": false,
+    "svelteBracketNewLine": false,
+    "svelteAllowShorthand": true,
+    "svelteIndentScriptAndStyle": true,
     "trailingComma": "all",
     "overrides": [
-        {
-            "files": "*.svelte",
-            "options": {
-                "printWidth": 100
-            }
-        },
-
         {
             "files": "*.yml",
             "options": {

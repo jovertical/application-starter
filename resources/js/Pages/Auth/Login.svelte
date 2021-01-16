@@ -22,10 +22,7 @@
         Don't have an account yet?
         <InertiaLink
             class="font-medium text-indigo-600 hover:text-indigo-500"
-            href="{route('register')}"
-        >
-            register
-        </InertiaLink>
+            href="{route('register')}">register</InertiaLink>
     </span>
 
     <form class="space-y-6" on:submit|preventDefault="{handleSubmit}">
@@ -35,8 +32,7 @@
             type="email"
             value="{$form.email}"
             error="{$form.errors.email}"
-            onChange="{form.handleChange}"
-        />
+            onChange="{form.handleChange}" />
 
         <TextInput
             label="Password"
@@ -45,8 +41,7 @@
             autocomplete="current-password"
             value="{$form.password}"
             error="{$form.errors.password}"
-            onChange="{form.handleChange}"
-        />
+            onChange="{form.handleChange}" />
 
         <div class="flex items-center justify-between">
             <div class="flex items-center">
@@ -54,9 +49,10 @@
                     id="remember_me"
                     name="remember_me"
                     type="checkbox"
-                    class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                />
-                <label for="remember_me" class="ml-2 block text-sm text-gray-900">
+                    class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" />
+                <label
+                    for="remember_me"
+                    class="ml-2 block text-sm text-gray-900">
                     Remember me
                 </label>
             </div>
@@ -64,8 +60,7 @@
             <div class="text-sm">
                 <InertiaLink
                     class="font-medium text-indigo-600 hover:text-indigo-500"
-                    href="{route('password.request')}"
-                >
+                    href="{route('password.request')}">
                     Forgot your password?
                 </InertiaLink>
             </div>

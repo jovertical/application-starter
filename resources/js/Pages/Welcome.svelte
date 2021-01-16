@@ -11,24 +11,15 @@
             {#if !$page.props.auth.authenticated}
                 <InertiaLink
                     class="text-gray-800 underline hover:no-underline"
-                    href="{route('login')}"
-                >
-                    Login
-                </InertiaLink>
+                    href="{route('login')}">Login</InertiaLink>
 
                 <InertiaLink
                     class="text-gray-800 underline hover:no-underline"
-                    href="{route('register')}"
-                >
-                    Register
-                </InertiaLink>
+                    href="{route('register')}">Register</InertiaLink>
             {:else}
                 <InertiaLink
                     class="text-gray-800 underline hover:no-underline"
-                    href="{route('home')}"
-                >
-                    Dashboard
-                </InertiaLink>
+                    href="{route('home')}">Dashboard</InertiaLink>
             {/if}
         </div>
     </div>

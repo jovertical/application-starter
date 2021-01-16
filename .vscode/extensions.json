@@ -1,9 +1,10 @@
 {
     "recommendations": [
+        "ardenivanov.svelte-intellisense",
+        "bmewburn.vscode-intelephense-client",
         "bradlc.vscode-tailwindcss",
-        "svelte.svelte-vscode",
-        "stylelint.vscode-stylelint",
         "esbenp.prettier-vscode",
-        "bmewburn.vscode-intelephense-client"
+        "stylelint.vscode-stylelint",
+        "svelte.svelte-vscode"
     ]
 }

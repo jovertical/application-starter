@@ -18,8 +18,8 @@
 
 <Auth title="Forgot password">
     <span slot="helper">
-        Just let us know your email address and we will email you a password reset link that will
-        allow you to choose a new one.
+        Just let us know your email address and we will email you a password
+        reset link that will allow you to choose a new one.
     </span>
 
     <form class="space-y-6" on:submit|preventDefault="{handleSubmit}">
@@ -29,16 +29,12 @@
             type="email"
             value="{$form.email}"
             error="{$form.errors.email}"
-            onChange="{form.handleChange}"
-        />
+            onChange="{form.handleChange}" />
 
         <div class="flex items-center justify-center">
             <InertiaLink
                 class="font-medium text-indigo-600 hover:text-indigo-500 text-sm"
-                href="{route('login')}"
-            >
-                Back to login
-            </InertiaLink>
+                href="{route('login')}">Back to login</InertiaLink>
         </div>
 
         <Button class="w-full" type="submit" loading="{$form.loading}">

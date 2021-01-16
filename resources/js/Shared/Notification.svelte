@@ -42,23 +42,22 @@
 </script>
 
 <div
-    class="fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end"
->
+    class="fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end">
     <Transition
         toggle="{show}"
         inTransition="transform ease-out duration-300 transition"
         inState="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
         onState="{'translate-y-0 opacity-100 sm:translate-x-0'}"
         outState="opacity-0"
-        outTransition="transition ease-in duration-100"
-    >
+        outTransition="transition ease-in duration-100">
         <div
-            class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden"
-        >
+            class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div class="p-4">
                 <div class="flex items-start">
                     <div class="flex-shrink-0">
-                        <Icon class="{iconColors[status]}" name="{icons[status]}" />
+                        <Icon
+                            class="{iconColors[status]}"
+                            name="{icons[status]}" />
                     </div>
 
                     <div class="ml-3 w-0 flex-1 pt-0.5">

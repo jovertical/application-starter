@@ -23,13 +23,13 @@
                     <div>
                         <h2
                             id="password_heading"
-                            class="text-lg leading-6 font-medium text-gray-900"
-                        >
+                            class="text-lg leading-6 font-medium text-gray-900">
                             Password
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-500">
-                            Ensure your account is using a long, random password to stay secure
+                            Ensure your account is using a long, random password
+                            to stay secure
                         </p>
                     </div>
 
@@ -42,8 +42,7 @@
                                 autocomplete="current-password"
                                 value="{$form.current_password}"
                                 error="{$form.errors.current_password}"
-                                onChange="{form.handleChange}"
-                            />
+                                onChange="{form.handleChange}" />
                         </div>
 
                         <div class="col-span-4 sm:col-span-2">
@@ -53,14 +52,15 @@
                                 type="password"
                                 value="{$form.password}"
                                 error="{$form.errors.password}"
-                                onChange="{form.handleChange}"
-                            />
+                                onChange="{form.handleChange}" />
                         </div>
                     </div>
                 </div>
 
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <Button type="submit" loading="{$form.loading}">Save</Button>
+                    <Button type="submit" loading="{$form.loading}">
+                        Save
+                    </Button>
                 </div>
             </div>
         </form>

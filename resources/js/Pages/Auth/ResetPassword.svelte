@@ -28,8 +28,7 @@
             type="email"
             value="{$form.email}"
             error="{$form.errors.email}"
-            onChange="{form.handleChange}"
-        />
+            onChange="{form.handleChange}" />
 
         <TextInput
             label="Password"
@@ -37,8 +36,7 @@
             type="password"
             value="{$form.password}"
             error="{$form.errors.password}"
-            onChange="{form.handleChange}"
-        />
+            onChange="{form.handleChange}" />
 
         <TextInput
             label="Confirm Password"
@@ -46,16 +44,12 @@
             type="password"
             value="{$form.password_confirmation}"
             error="{$form.errors.password_confirmation}"
-            onChange="{form.handleChange}"
-        />
+            onChange="{form.handleChange}" />
 
         <div class="flex items-center justify-end">
             <InertiaLink
                 class="font-medium text-indigo-600 hover:text-indigo-500 text-sm"
-                href="{route('login')}"
-            >
-                Back to login
-            </InertiaLink>
+                href="{route('login')}">Back to login</InertiaLink>
         </div>
 
         <Button class="w-full" type="submit" loading="{$form.loading}">

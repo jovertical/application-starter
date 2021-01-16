@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+        "format": "prettier --write \"resources/**/*.(css|js|svelte)\"",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
@@ -19,6 +20,7 @@
         "laravel-mix": "^5.0.9",
         "laravel-mix-svelte": "^0.1.6",
         "postcss": "^8.2.4",
+        "prettier": "^2.2.1",
         "prettier-plugin-svelte": "^2.1.0",
         "resolve-url-loader": "^3.1.0",
         "stylelint": "^13.8.0",

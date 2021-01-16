@@ -5,7 +5,7 @@ export function createForm(values = {}) {
     let store = writable({ loading: false, errors: {}, ...values });
 
     function update(key, value) {
-        store.update(form => ({
+        store.update((form) => ({
             ...form,
             [key]: value,
         }));
@@ -14,7 +14,7 @@ export function createForm(values = {}) {
     function submit(url, method = 'POST') {
         update('loading', true);
 
-        store.update(form => {
+        store.update((form) => {
             let { loading, errors, ...data } = form;
 
             Inertia.visit(url, {
@@ -23,7 +23,7 @@ export function createForm(values = {}) {
                 onSuccess: () => {
                     update('loading', false);
                 },
-                onError: errors => {
+                onError: (errors) => {
                     update('loading', false);
                     update('errors', errors);
                 },
@@ -35,9 +35,9 @@ export function createForm(values = {}) {
 
     return {
         subscribe: store.subscribe,
-        post: url => submit(url, 'POST'),
-        patch: url => submit(url, 'PATCH'),
-        delete: url => submit(url, 'DELETE'),
-        handleChange: event => update(event.target.name, event.target.value),
+        post: (url) => submit(url, 'POST'),
+        patch: (url) => submit(url, 'PATCH'),
+        delete: (url) => submit(url, 'DELETE'),
+        handleChange: (event) => update(event.target.name, event.target.value),
     };
 }

@@ -24,14 +24,13 @@
                     <div>
                         <h2
                             id="profile_heading"
-                            class="text-lg leading-6 font-medium text-gray-900"
-                        >
+                            class="text-lg leading-6 font-medium text-gray-900">
                             Profile
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-500">
-                            This information will be displayed publicly so be careful what you
-                            share.
+                            This information will be displayed publicly so be
+                            careful what you share.
                         </p>
                     </div>
 
@@ -42,8 +41,7 @@
                                 name="first_name"
                                 value="{$form.first_name}"
                                 error="{$form.errors.first_name}"
-                                onChange="{form.handleChange}"
-                            />
+                                onChange="{form.handleChange}" />
                         </div>
 
                         <div class="col-span-4 sm:col-span-2">
@@ -52,8 +50,7 @@
                                 name="last_name"
                                 value="{$form.last_name}"
                                 error="{$form.errors.last_name}"
-                                onChange="{form.handleChange}"
-                            />
+                                onChange="{form.handleChange}" />
                         </div>
 
                         <div class="col-span-4 sm:col-span-3">
@@ -63,14 +60,15 @@
                                 type="email"
                                 value="{$form.email}"
                                 error="{$form.errors.email}"
-                                onChange="{form.handleChange}"
-                            />
+                                onChange="{form.handleChange}" />
                         </div>
                     </div>
                 </div>
 
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <Button type="submit" loading="{$form.loading}">Save</Button>
+                    <Button type="submit" loading="{$form.loading}">
+                        Save
+                    </Button>
                 </div>
             </div>
         </form>

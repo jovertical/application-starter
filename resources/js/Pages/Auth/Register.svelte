@@ -15,7 +15,7 @@
     });
 
     function handleSubmit() {
-        form.post(route('register'))
+        form.post(route('register'));
     }
 </script>
 
@@ -24,10 +24,7 @@
         Already have an account?
         <InertiaLink
             class="font-medium text-indigo-600 hover:text-indigo-500"
-            href="{route('login')}"
-        >
-            login
-        </InertiaLink>
+            href="{route('login')}">login</InertiaLink>
     </span>
 
     <form class="space-y-6" on:submit|preventDefault="{handleSubmit}">
@@ -36,16 +33,14 @@
             name="first_name"
             value="{$form.first_name}"
             error="{$form.errors.first_name}"
-            onChange="{form.handleChange}"
-        />
+            onChange="{form.handleChange}" />
 
         <TextInput
             label="Last name"
             name="last_name"
             value="{$form.last_name}"
             error="{$form.errors.last_name}"
-            onChange="{form.handleChange}"
-        />
+            onChange="{form.handleChange}" />
 
         <TextInput
             label="Email address"
@@ -53,8 +48,7 @@
             type="email"
             value="{$form.email}"
             error="{$form.errors.email}"
-            onChange="{form.handleChange}"
-        />
+            onChange="{form.handleChange}" />
 
         <TextInput
             label="Password"
@@ -62,8 +56,7 @@
             type="password"
             value="{$form.password}"
             error="{$form.errors.password}"
-            onChange="{form.handleChange}"
-        />
+            onChange="{form.handleChange}" />
 
         <Button class="w-full" type="submit" loading="{$form.loading}">
             Register

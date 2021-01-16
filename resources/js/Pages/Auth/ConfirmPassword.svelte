@@ -15,7 +15,8 @@
 
 <Auth title="Confirm password">
     <span slot="helper">
-        This is a secure area of the application. Please confirm your password before continuing.
+        This is a secure area of the application. Please confirm your password
+        before continuing.
     </span>
 
     <form class="space-y-6" on:submit|preventDefault="{handleSubmit}">
@@ -25,8 +26,7 @@
             type="password"
             value="{$form.password}"
             error="{$form.errors.password}"
-            onChange="{form.handleChange}"
-        />
+            onChange="{form.handleChange}" />
 
         <Button class="w-full" type="submit" loading="{$form.loading}">
             Confirm
