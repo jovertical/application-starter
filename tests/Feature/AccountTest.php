@@ -1,32 +1,32 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
+use function Pest\Laravel\{get, patch};
+use function Tests\login;
 
 uses(RefreshDatabase::class);
 
-test('account settings screen can be rendered', function () {
-    $user = User::factory()->create();
+beforeEach(function () {
+    $this->user = login();
+});
 
-    $response = $this->actingAs($user)->get('/settings/account');
+test('account settings screen can be rendered', function () {
+    $response = get('/settings/account');
 
     $response->assertInertia('Settings/Account');
 });
 
 test('account information can be updated', function () {
-    $user = User::factory()->create();
+    get('/settings/account');
 
-    $this->get('/settings/account');
-
-    $this->actingAs($user);
-
-    $response = $this->patch('/settings/account', [
-        'first_name' => $user->first_name,
-        'last_name' => $user->last_name,
+    $response = patch('/settings/account', [
+        'first_name' => $this->user->first_name,
+        'last_name' => $this->user->last_name,
         'email' => 'test@example.com'
     ]);
 
-    $this->assertDatabaseHas('users', ['email' => 'test@example.com']);
+    test()->assertDatabaseHas('users', ['email' => 'test@example.com']);
 
     $response->assertRedirect('/settings/account');
 });

@@ -2,10 +2,15 @@
 
 namespace Tests;
 
-/**
- * A basic assert example.
- */
-function assertExample(): void
+use App\Models\User;
+
+use function Pest\Laravel\actingAs;
+
+function login(User $user = null)
 {
-    test()->assertTrue(true);
+    $user ??= User::factory()->create();
+
+    actingAs($user);
+
+    return $user;
 }

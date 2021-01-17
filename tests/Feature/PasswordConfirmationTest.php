@@ -1,22 +1,24 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
+use function Pest\Laravel\{get, post};
+use function Tests\login;
 
 uses(RefreshDatabase::class);
 
-test('confirm password screen can be rendered', function () {
-    $user = User::factory()->create();
+beforeEach(function () {
+    $this->user = login();
+});
 
-    $response = $this->actingAs($user)->get('/confirm-password');
+test('confirm password screen can be rendered', function () {
+    $response = get('/confirm-password');
 
     $response->assertInertia('Auth/ConfirmPassword');
 });
 
 test('password can be confirmed', function () {
-    $user = User::factory()->create();
-
-    $response = $this->actingAs($user)->post('/confirm-password', [
+    $response = post('/confirm-password', [
         'password' => 'password',
     ]);
 
@@ -25,9 +27,7 @@ test('password can be confirmed', function () {
 });
 
 test('password is not confirmed with invalid password(', function () {
-    $user = User::factory()->create();
-
-    $response = $this->actingAs($user)->post('/confirm-password', [
+    $response = post('/confirm-password', [
         'password' => 'wrong-password',
     ]);
 
