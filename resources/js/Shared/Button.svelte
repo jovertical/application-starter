@@ -1,10 +1,35 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
+    import { Inertia } from '@inertiajs/inertia';
+    import cx from '~/directives/cx';
+
+    let dispatch = createEventDispatcher();
+
     export let type = 'button';
     export let variant = 'primary';
     export let loading = false;
+    export let path = '/';
+
+    $: primary = variant === 'primary';
+    $: secondary = variant === 'secondary';
+
+    function handleClick() {
+        if (type === 'link') {
+            return Inertia.get(path);
+        }
+
+        dispatch('click');
+    }
 </script>
 
-<button type="{type}" class="button {variant} {$$props.class || ''}">
+<button
+    class="inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 {$$props.class}"
+    use:cx="{{
+        'bg-indigo-600 hover:bg-indigo-700 border-transparent text-white': primary,
+        'bg-white border-gray-300 text-gray-700 hover:bg-gray-50': secondary,
+    }}"
+    type="{type}"
+    on:click="{handleClick}">
     {#if loading}
         <svg
             class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"

@@ -34,6 +34,7 @@
         "@inertiajs/inertia": "^0.8.2",
         "@inertiajs/inertia-svelte": "^0.5.2",
         "@inertiajs/progress": "^0.2.4",
+        "classnames": "^2.2.6",
         "svelte-class-transition": "^1.0.4"
     }
 }
