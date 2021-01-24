@@ -33,11 +33,15 @@ export function createForm(values = {}) {
         });
     }
 
+    function handleChange(event) {
+        update(event.detail.name, event.detail.value);
+    }
+
     return {
         subscribe: store.subscribe,
         post: (url) => submit(url, 'POST'),
         patch: (url) => submit(url, 'PATCH'),
         delete: (url) => submit(url, 'DELETE'),
-        handleChange: (event) => update(event.target.name, event.target.value),
+        handleChange,
     };
 }

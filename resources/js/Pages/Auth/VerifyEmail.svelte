@@ -1,7 +1,6 @@
 <script>
     import Button from '~/Shared/Button';
     import Auth from '~/Shared/Layouts/Auth';
-    import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
 
     let form = createForm();
@@ -29,7 +28,7 @@
             on:submit|preventDefault="{handleLogout}">
             <button
                 class="font-medium text-indigo-600 hover:text-indigo-500 text-sm"
-                type="submit"> Logout </button>
+                type="submit">Logout</button>
         </form>
 
         <form on:submit|preventDefault="{handleSubmit}">

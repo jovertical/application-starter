@@ -2,6 +2,7 @@
     import { InertiaLink } from '@inertiajs/inertia-svelte';
     import { page } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
+    import FormGroup from '~/Shared/FormGroup';
     import Auth from '~/Shared/Layouts/Auth';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
@@ -22,29 +23,34 @@
 
 <Auth title="Reset password">
     <form class="space-y-6" on:submit|preventDefault="{handleSubmit}">
-        <TextInput
-            label="Email address"
-            name="email"
-            type="email"
-            value="{$form.email}"
-            error="{$form.errors.email}"
-            onChange="{form.handleChange}" />
+        <FormGroup label="Email address" error="{$form.errors.email}">
+            <TextInput
+                name="email"
+                type="email"
+                value="{$form.email}"
+                on:change="{form.handleChange}"
+                hasError="{!!$form.errors.email}" />
+        </FormGroup>
 
-        <TextInput
-            label="Password"
-            name="password"
-            type="password"
-            value="{$form.password}"
-            error="{$form.errors.password}"
-            onChange="{form.handleChange}" />
+        <FormGroup label="Password" error="{$form.errors.password}">
+            <TextInput
+                name="password"
+                type="password"
+                value="{$form.password}"
+                on:change="{form.handleChange}"
+                hasError="{!!$form.errors.password}" />
+        </FormGroup>
 
-        <TextInput
+        <FormGroup
             label="Confirm Password"
-            name="password_confirmation"
-            type="password"
-            value="{$form.password_confirmation}"
-            error="{$form.errors.password_confirmation}"
-            onChange="{form.handleChange}" />
+            error="{$form.errors.password_confirmation}">
+            <TextInput
+                name="password_confirmation"
+                type="password"
+                value="{$form.password_confirmation}"
+                on:change="{form.handleChange}"
+                hasError="{!!$form.errors.password_confirmation}" />
+        </FormGroup>
 
         <div class="flex items-center justify-end">
             <InertiaLink

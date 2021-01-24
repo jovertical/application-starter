@@ -1,6 +1,7 @@
 <script>
     import { page } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
+    import FormGroup from '~/Shared/FormGroup';
     import Settings from '~/Shared/Layouts/Settings';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
@@ -35,33 +36,39 @@
                     </div>
 
                     <div class="mt-6 grid grid-cols-4 gap-6">
-                        <div class="col-span-4 sm:col-span-2">
+                        <FormGroup
+                            class="col-span-4 sm:col-span-2"
+                            label="First name"
+                            error="{$form.errors.first_name}">
                             <TextInput
-                                label="First name"
                                 name="first_name"
                                 value="{$form.first_name}"
-                                error="{$form.errors.first_name}"
-                                onChange="{form.handleChange}" />
-                        </div>
+                                on:change="{form.handleChange}"
+                                hasError="{!!$form.errors.first_name}" />
+                        </FormGroup>
 
-                        <div class="col-span-4 sm:col-span-2">
+                        <FormGroup
+                            class="col-span-4 sm:col-span-2"
+                            label="Last name"
+                            error="{$form.errors.last_name}">
                             <TextInput
-                                label="Last name"
                                 name="last_name"
                                 value="{$form.last_name}"
-                                error="{$form.errors.last_name}"
-                                onChange="{form.handleChange}" />
-                        </div>
+                                on:change="{form.handleChange}"
+                                hasError="{!!$form.errors.last_name}" />
+                        </FormGroup>
 
-                        <div class="col-span-4 sm:col-span-3">
+                        <FormGroup
+                            class="col-span-4 sm:col-span-3"
+                            label="Email address"
+                            error="{$form.errors.email}">
                             <TextInput
-                                label="Email address"
                                 name="email"
                                 type="email"
                                 value="{$form.email}"
-                                error="{$form.errors.email}"
-                                onChange="{form.handleChange}" />
-                        </div>
+                                on:change="{form.handleChange}"
+                                hasError="{!!$form.errors.email}" />
+                        </FormGroup>
                     </div>
                 </div>
 

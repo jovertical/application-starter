@@ -1,6 +1,7 @@
 <script>
     import { InertiaLink } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
+    import FormGroup from '~/Shared/FormGroup';
     import Auth from '~/Shared/Layouts/Auth';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
@@ -28,35 +29,39 @@
     </span>
 
     <form class="space-y-6" on:submit|preventDefault="{handleSubmit}">
-        <TextInput
-            label="First name"
-            name="first_name"
-            value="{$form.first_name}"
-            error="{$form.errors.first_name}"
-            onChange="{form.handleChange}" />
+        <FormGroup label="First name" error="{$form.errors.first_name}">
+            <TextInput
+                name="first_name"
+                value="{$form.first_name}"
+                on:change="{form.handleChange}"
+                hasError="{!!$form.errors.first_name}" />
+        </FormGroup>
 
-        <TextInput
-            label="Last name"
-            name="last_name"
-            value="{$form.last_name}"
-            error="{$form.errors.last_name}"
-            onChange="{form.handleChange}" />
+        <FormGroup label="Last name" error="{$form.errors.last_name}">
+            <TextInput
+                name="last_name"
+                value="{$form.last_name}"
+                on:change="{form.handleChange}"
+                hasError="{!!$form.errors.last_name}" />
+        </FormGroup>
 
-        <TextInput
-            label="Email address"
-            name="email"
-            type="email"
-            value="{$form.email}"
-            error="{$form.errors.email}"
-            onChange="{form.handleChange}" />
+        <FormGroup label="Email address" error="{$form.errors.email}">
+            <TextInput
+                name="email"
+                type="email"
+                value="{$form.email}"
+                on:change="{form.handleChange}"
+                hasError="{!!$form.errors.email}" />
+        </FormGroup>
 
-        <TextInput
-            label="Password"
-            name="password"
-            type="password"
-            value="{$form.password}"
-            error="{$form.errors.password}"
-            onChange="{form.handleChange}" />
+        <FormGroup label="Password" error="{$form.errors.email}">
+            <TextInput
+                name="password"
+                type="password"
+                value="{$form.password}"
+                on:change="{form.handleChange}"
+                hasError="{!!$form.errors.password}" />
+        </FormGroup>
 
         <Button class="w-full" type="submit" loading="{$form.loading}">
             Register

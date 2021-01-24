@@ -1,5 +1,6 @@
 <script>
     import Button from '~/Shared/Button';
+    import FormGroup from '~/Shared/FormGroup';
     import Auth from '~/Shared/Layouts/Auth';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
@@ -20,13 +21,14 @@
     </span>
 
     <form class="space-y-6" on:submit|preventDefault="{handleSubmit}">
-        <TextInput
-            label="Password"
-            name="password"
-            type="password"
-            value="{$form.password}"
-            error="{$form.errors.password}"
-            onChange="{form.handleChange}" />
+        <FormGroup label="Password" error="{$form.errors.password}">
+            <TextInput
+                name="password"
+                type="password"
+                value="{$form.password}"
+                on:change="{form.handleChange}"
+                hasError="{!!$form.errors.password}" />
+        </FormGroup>
 
         <Button class="w-full" type="submit" loading="{$form.loading}">
             Confirm

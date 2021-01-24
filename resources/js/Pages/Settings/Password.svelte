@@ -1,6 +1,6 @@
 <script>
-    import { page } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
+    import FormGroup from '~/Shared/FormGroup';
     import Settings from '~/Shared/Layouts/Settings';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
@@ -34,26 +34,30 @@
                     </div>
 
                     <div class="mt-6 grid grid-cols-4 gap-6">
-                        <div class="col-span-4 sm:col-span-2">
+                        <FormGroup
+                            class="col-span-4 sm:col-span-2"
+                            label="Current Password"
+                            error="{$form.errors.current_password}">
                             <TextInput
-                                label="Current Password"
                                 name="current_password"
                                 type="password"
                                 autocomplete="current-password"
                                 value="{$form.current_password}"
-                                error="{$form.errors.current_password}"
-                                onChange="{form.handleChange}" />
-                        </div>
+                                on:change="{form.handleChange}"
+                                hasError="{!!$form.errors.current_password}" />
+                        </FormGroup>
 
-                        <div class="col-span-4 sm:col-span-2">
+                        <FormGroup
+                            class="col-span-4 sm:col-span-2"
+                            label="Password"
+                            error="{$form.errors.password}">
                             <TextInput
-                                label="Password"
                                 name="password"
                                 type="password"
                                 value="{$form.password}"
-                                error="{$form.errors.password}"
-                                onChange="{form.handleChange}" />
-                        </div>
+                                on:change="{form.handleChange}"
+                                hasError="{!!$form.errors.password}" />
+                        </FormGroup>
                     </div>
                 </div>
 
